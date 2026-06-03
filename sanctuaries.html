@@ -128,6 +128,116 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+		/* --- Desktop Reset / Defaults --- */
+		.menu-toggle {
+		    display: none; /* Hidden entirely on standard screens */
+ 		   flex-direction: column;
+ 		   justify-content: space-between;
+ 		   width: 28px;
+ 		   height: 20px;
+ 		   background: transparent;
+ 		   border: none;
+ 		   cursor: pointer;
+ 		   padding: 0;
+ 		   z-index: 1001;
+		}
+
+		.hamburger-bar {
+  		  width: 100%;
+		    height: 2px;
+ 		   background-color: #111111; /* Standard dark charcoal text match */
+ 		   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		/* --- Mobile Breakpoint Optimization --- */
+		@media (max-width: 768px) {
+ 		   /* 1. Ensure the main navigation bar has a solid background and clear height */
+ 		   nav.fade-in {
+ 		       position: relative !important;
+  		      display: flex !important;
+  		      align-items: center !important;
+  		      justify-content: space-between !important;
+  		      padding: 15px 20px !important;
+   		     background-color: #ffffff !important;
+  		      height: 70px !important; /* Forces a standard clear boundary */
+   		     box-sizing: border-box !important;
+  		  }
+
+ 		   /* 2. Position the toggle cleanly on the right inside that header space */
+ 		   .menu-toggle {
+ 		       display: flex !important;
+ 		       position: static !important; /* Removes absolute positioning conflicts */
+ 		       margin-left: auto !important;
+		    }
+
+		    /* 3. Re-align your logo inside the mobile bar */
+ 		   .logo {
+ 		       max-height: 45px !important;
+ 		       display: flex !important;
+ 		       align-items: center !important;
+ 		   }
+    
+ 		   .logo img {
+ 		       height: 40px !important;
+ 		       width: auto !important;
+ 		   }
+
+ 		   /* 4. Transform the menu drop-down overlay to sit perfectly below the 70px header */
+ 		   .nav-content {
+ 		       display: none; 
+ 		       position: absolute !important;
+ 		       top: 70px !important; 
+ 		       left: 0 !important;
+		        width: 100% !important;
+        		background-color: #ffffff !important;
+  		      flex-direction: column !important;
+  		      align-items: center !important;
+  		      /* Increased bottom padding from 30px to 50px for a cleaner frame */
+  		      padding: 20px 0 50px 0 !important; 
+   		     /* Deepened the shadow slightly to cleanly mask background text */
+  		      box-shadow: 0 25px 35px rgba(0, 0, 0, 0.12) !important; 
+  		      z-index: 1000 !important;
+  		      box-sizing: border-box !important;
+ 		   }
+
+		    /* When the mobile menu is open */
+ 		   .nav-content.active {
+ 		       display: flex !important;
+ 		   }
+
+ 		   /* Clean text title inside the menu dropdown */
+  		  .brand-title {
+  		      font-size: 1.3rem !important;
+   		     letter-spacing: 2px !important;
+  		      margin-bottom: 20px !important;
+   		     text-align: center !important;
+   		     width: 100% !important;
+  		  }
+
+  		  /* Clear vertical stack formatting for link items */
+ 		   .nav-links {
+  		      display: flex !important;
+  		      flex-direction: column !important;
+  		      align-items: center !important;
+  		      width: 100% !important;
+   		     gap: 18px !important;
+   		     margin: 0 !important;
+  		      padding: 0 !important;
+ 		   }
+
+		    .nav-links a {
+  		      font-size: 1.1rem !important;
+  		      width: 100% !important;
+  		      text-align: center !important;
+   		     padding: 5px 0 !important;
+  		  }
+
+ 		   /* 5. FIX: Ensure your page's Hero content section doesn't slide under the navbar */
+ 		   header.hero {
+ 		       margin-top: 20px !important; /* Adds a safety margin below the nav bar */
+ 		       padding-top: 10px !important;
+ 		   }
+		}
     </style>
 </head>
 <body>
@@ -138,6 +248,11 @@
                 <img src="images/logo.png" alt="Awakening Aphrodite Logo">
             </a>
         </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+   			<span class="hamburger-bar"></span>
+    		<span class="hamburger-bar"></span>
+    		<span class="hamburger-bar"></span>
+		</button>
         <div class="nav-content">
             <a href="index.html" class="brand-title">Awakening Aphrodite</a>
             <div class="nav-links">
@@ -309,6 +424,16 @@
         <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
         <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
     </footer>
+	<script>
+		  const menuBtn = document.querySelector('.menu-toggle');
+		  const navContentBox = document.querySelector('.nav-content');
 
+		  if (menuBtn && navContentBox) {
+		    menuBtn.addEventListener('click', () => {
+ 		     // Toggle the slide-down navigation view active
+ 		     navContentBox.classList.toggle('active');
+ 		   });
+ 		 }
+	</script>
 </body>
 </html>
