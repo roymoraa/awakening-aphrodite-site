@@ -230,7 +230,6 @@
 <form id="collaborate-form" name="collaborate" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="collaborate" />
 
-
                 <h2 class="section-title">Contact Information</h2>
                 
                 <div class="form-group">
@@ -447,24 +446,26 @@
     netlifyForm.addEventListener('submit', function(e) {
       e.preventDefault(); 
 
-      const data = new FormData(netlifyForm);
+      // 1. Capture all form fields natively
+      const formData = new FormData(netlifyForm);
 
-      // FORCE the submission to the root path, which Netlify always listens to for forms
-      fetch('/', {
+      // 2. Explicitly submit to the current page path with encoded data
+      fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
+        body: new URLSearchParams(formData).toString()
       })
       .then((response) => {
         if (response.ok) {
+          // Smoothly hide form and show success message
           netlifyForm.style.display = 'none';
           if (successBox) successBox.style.display = 'block';
         } else {
-          alert('Server error: ' + response.status);
+          console.error('Netlify server error status:', response.status);
         }
       })
       .catch((error) => {
-        console.error('Submission error:', error);
+        console.error('Submission processing error:', error);
       });
     });
   }
