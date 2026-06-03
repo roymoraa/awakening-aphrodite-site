@@ -449,14 +449,13 @@
 
       const data = new FormData(netlifyForm);
 
-      // FIX: Dynamically targets the exact URL route you are currently viewing
-      fetch(window.location.href, {
+      // FORCE the submission to the root path, which Netlify always listens to for forms
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data).toString()
       })
       .then((response) => {
-        // Netlify returns a successful 200 OK when the paths match perfectly
         if (response.ok) {
           netlifyForm.style.display = 'none';
           if (successBox) successBox.style.display = 'block';
