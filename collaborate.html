@@ -560,26 +560,28 @@
     netlifyForm.addEventListener('submit', function(e) {
       e.preventDefault(); 
 
-      // 1. Capture all form fields natively
+      // 1. Gather all form inputs natively
       const formData = new FormData(netlifyForm);
 
-      // 2. Explicitly submit to the current page path with encoded data
-      fetch(window.location.pathname, {
+      // 2. Post directly to the relative root URL. 
+      // This automatically updates to match awakeningaphrodite.org natively.
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
       })
       .then((response) => {
         if (response.ok) {
-          // Smoothly hide form and show success message
+          // Hide form and expose clean success message
           netlifyForm.style.display = 'none';
           if (successBox) successBox.style.display = 'block';
         } else {
-          console.error('Netlify server error status:', response.status);
+          console.error('Submission processing error status:', response.status);
+          alert('Submission error. Please try again or contact us directly.');
         }
       })
       .catch((error) => {
-        console.error('Submission processing error:', error);
+        console.error('Network or processing error:', error);
       });
     });
   }
