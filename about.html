@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-base); color: var(--text-dark); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+        a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        a:hover { opacity: 0.6; }
+
+        /* Navigation */
+
+        	nav { 
+        	position: fixed; top: 0; width: 100%; padding: 1rem 5%; 
+        	display: flex; flex-direction: row; align-items: center; 
+        	z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px); 
+        	border-bottom: 1px solid var(--border-color); 
+        	}
+ 
+         .logo { 
+            margin-right: 2rem; 
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+        }
+       	
+        .logo a { transition: opacity 0.3s ease; display: inline-block; }
+        
+        .logo img { 
+            max-height: 90px; 
+            width: auto; 
+            display: block; 
+        }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+       .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .nav-links { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem; 
+            font-size: 0.85rem; letter-spacing: 1px; 
+            line-height: 1;
+        }
+        
+         /* Hero Layout */
+        .hero {
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 12rem 5% 4rem 5%;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid #ddd;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .hero-subheadline { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; color: var(--text-muted); max-width: 850px; line-height: 1.6; }
+        
+        .section-wrapper { width: 100%; padding: 6rem 5%; }
+        .alt-bg { background-color: var(--bg-alt); }
+        .dark-bg { background-color: var(--bg-dark); color: #fff; text-align: center; }
+        .dark-bg .text-block h2 { color: #fff; }
+        .dark-bg .text-block p { color: #ccc; }
+                
+        .text-block { max-width: 900px; margin: 0 auto; text-align: center; }
+        .text-block h2 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .text-block p { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 300; }
+             .text-block .accent-line { font-family: var(--font-serif); font-style: italic; font-size: 1.6rem; color: var(--text-dark); margin-top: 2rem; }
+   
+        .list-container { text-align: left; max-width: 600px; margin: 2rem auto; }
+        .list-container li { margin-bottom: 1rem; font-size: 1.1rem; }
+        .btn { display: inline-block; margin-top: 2rem; padding: 1.2rem 3.5rem; background: var(--text-dark); color: #fff !important; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .dark-bg .btn { background: #fff; color: var(--text-dark) !important; }
+
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+        @media (max-width: 900px) { .nav-links { display: none; } }
+                @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <nav class="fade-in">
+        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo"></a></div>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="elements.html">Elements</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero fade-in">
+        <h1>About Awakening Aphrodite</h1>
+        <p class="hero-subheadline">A global movement exploring embodied healing, sacred neurophysiology, emotional truth, erotic intelligence, community, and feminine-led transformation.</p>
+    </header>
+
+    <div class="section-wrapper fade-in">
+        <section class="text-block">
+            <h2>A Living Ecosystem of Healing</h2>
+            <p>Awakening Aphrodite is an emerging ecosystem of practitioners, visionaries, healers, researchers, creatives, and communities exploring a more embodied approach to healing and human flourishing.</p>
+            <p>At the heart of the movement is a simple idea: </p>
+            <p class="accent-line">Healing deepens when the body, nervous system, emotions, relationships, sexuality, land, and spirit are no longer treated as separate.</p>
+            <p>We are exploring what becomes possible when modern medicine, somatic healing, regenerative therapies, consciousness work, community care, and feminine intelligence are woven together into a new model of healing.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <h2>Feminine Intelligence</h2>
+            <p>In Awakening Aphrodite, the feminine is not understood as gender. It is an intelligence present in all people connected to intuition, relationality, creativity, embodiment, emotional truth, sensuality, collaboration, and emergence.</p>
+            <p>We believe the future of healing requires balancing structure with intuition, science with feeling, and innovation with humanity.</p>
+            <p style="font-size: 0.9rem; margin-top: 2rem;">This movement welcomes all genders, identities, orientations, and backgrounds.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper">
+    <section class="text-block">
+        <h2>The Body Remembers</h2>
+        <p>The body carries far more than symptoms. It carries memory, emotion, adaptation, trauma, pleasure, resilience, instinct, and wisdom.</p>
+        
+        <div class="list-container">
+            <h3 style="margin-bottom: 1.5rem; font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Exploring healing through:</h3>
+            <ul>
+                <li>Nervous system regulation</li>
+                <li>Somatic awareness</li>
+                <li>Emotional processing</li>
+                <li>Regenerative medicine</li>
+                <li>Sacred neurophysiology</li>
+                <li>Erotic embodiment</li>
+                <li>Ritual and community</li>
+                <li>Connection with land and nature</li>
+            </ul>
+        </div>
+
+        <p class="accent-line">We believe healing becomes more sustainable when people feel safe enough to reconnect with themselves fully.</p>
+    </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <h2>Future Sanctuaries</h2>
+            <p>We envision a network of sanctuaries emerging around the world. Each sanctuary will be shaped by its land, local culture, ecology, elemental identity, practitioners, and community needs.</p>
+            <p>Rather than replicating a single model, each sanctuary will evolve uniquely through relationship with place.</p>
+            <p style="font-size: 0.9rem; margin-top: 2rem;">No sanctuaries are currently open. The project is currently in an early development and visioning phase.</p>
+            <a href="sanctuaries.html" class="btn">Explore Sanctuaries</a>
+        </section>
+    </div>
+
+    <div class="section-wrapper">
+        <section class="text-block">
+            <h2>Healing Through Community</h2>
+            <p>Awakening Aphrodite is being designed as a hybrid nonprofit and for-profit ecosystem intended to protect healing land, support accessibility, train practitioners, foster research and innovation, create sustainable healing spaces, and support people across diverse economic realities.</p>
+            <p>We believe healing is relational, and that community itself can become medicine.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <h2>A More Embodied Future</h2>
+            <p>We envision a future where healing is more human, nervous systems are understood with greater depth, and pleasure and emotional truth are no longer exiled from medicine.</p>
+            <div class="list-container">
+                <ul>
+                    <li>Land is protected and stewarded collectively</li>
+                    <li>Technology supports embodiment rather than disconnection</li>
+                    <li>People feel more connected to themselves, one another, and the living world</li>
+                </ul>
+            </div>
+            <p style="font-size: 1rem; margin-top: 2rem; font-style: italic;">Awakening Aphrodite is one small contribution toward that future.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper dark-bg">
+        <section class="text-block">
+          <section class="text-block" style="padding: 2rem 0;">
+      
+            <p style="font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; margin-bottom: 10;">The movement is still emerging. And yet, for many people, something already feels familiar here as though the body remembers a different way of living, healing, and belonging.</p>
+            <a href="sacred-neurophysiology.html" class="btn">Explore Sacred Neurophysiology</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="elements.html">Elements</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

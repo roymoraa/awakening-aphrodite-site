@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+        a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        a:hover { opacity: 0.6; }
+
+        /* Navigation: Perfectly Balanced Header matching index.html layout */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; flex-direction: row; align-items: center;
+            z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { 
+            margin-right: 2rem; 
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a { transition: opacity 0.3s ease; display: inline-block; }
+        
+        .logo img { 
+            max-height: 90px; 
+            width: auto; 
+            display: block; 
+        }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .nav-links { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem; 
+            font-size: 0.85rem; letter-spacing: 1px; 
+            line-height: 1;
+        }
+
+        /* Hero Layout */
+        .hero {
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 12rem 5% 4rem 5%;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .hero-subheadline { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; color: var(--text-muted); max-width: 850px; line-height: 1.6; }
+
+        /* Full Width Wrapper for backgrounds */
+        .section-wrapper { width: 100%; padding: 6rem 5%; }
+        .section-wrapper.base-bg { background-color: var(--bg-base); }
+        .section-wrapper.alt-bg { background-color: var(--bg-alt); }
+        .section-wrapper.dark-bg { background-color: var(--bg-dark); color: #fff; }
+
+        .text-block { max-width: 950px; margin: 0 auto; text-align: center; }
+        .text-block h2 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .text-block p { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 300; }
+        
+        .dark-bg .text-block h2 { color: #fff; }
+        .dark-bg .text-block p { color: #ccc; }
+        
+        /* Section Tags */
+        .section-tag { font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.75rem; display: block; text-align: center; }
+        .dark-bg .section-tag { color: #aaa; }
+
+        /* Forms Layout */
+        .contact-form, .newsletter-form {
+            max-width: 550px;
+            margin: 3rem auto 0 auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .contact-form input, .contact-form textarea, .newsletter-form input {
+            padding: 1rem 0;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            outline: none;
+            color: var(--text-dark);
+        }
+        .contact-form textarea {
+            resize: none;
+            height: 120px;
+        }
+        .contact-form input:focus, .contact-form textarea:focus, .newsletter-form input:focus {
+            border-bottom-color: var(--text-dark);
+        }
+
+        .btn {
+            display: inline-block; margin-top: 1.5rem; padding: 1.2rem 3.5rem; background: var(--text-dark);
+            color: #fff !important; font-family: var(--font-sans); letter-spacing: 1px; transition: opacity 0.3s ease;
+            text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer; text-align: center;
+        }
+        .btn:hover { opacity: 0.8; }
+        
+        .dark-bg .btn { background: #fff; color: var(--text-dark) !important; }
+
+        .email-link {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            display: inline-block;
+            margin-top: 2rem;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+        .email-link:hover {
+            border-bottom-color: var(--text-dark);
+            opacity: 1;
+        }
+
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <nav class="fade-in">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Awakening Aphrodite Logo">
+            </a>
+        </div>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="elements.html">Elements</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="Team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero fade-in">
+        <h1>Connect</h1>
+        <p class="hero-subheadline">We welcome thoughtful connection, collaboration, questions, and shared resonance as the movement continues to emerge.</p>
+    </header>
+
+    <div class="section-wrapper base-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">Co-Creation</span>
+            <h2>Collaborate</h2>
+            <p>If you feel a distinct resonance to build, bring forth your medicine, or coordinate pathways with us, we invite you to fill out our collaborator questionnaire.</p>
+            
+            <a href="collaborate.html" class="btn">GO TO COLLABORATOR QUESTIONNAIRE</a>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">Newsletter</span>
+            <h2>Stay Connected</h2>
+            <p>Receive future updates, writings, sanctuary developments, educational offerings, and announcements as Awakening Aphrodite continues to evolve.</p>
+            
+			<form class="newsletter-form" action="https://awakeningaphrodite.us20.list-manage.com/subscribe/post?u=bcb0db18fb72cebd04235598b&amp;id=ee0f5e13e1&amp;f_id=001d7df1f0" method="POST" target="_blank" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+ 			   <div class="form-group">
+ 			       <label for="mce-FNAME">First Name</label>
+ 			       <input type="text" id="mce-FNAME" name="FNAME" placeholder="Optional">
+			    </div>
+ 			   <div class="form-group">
+  			      <label for="mce-EMAIL">Email Address</label>
+  			      <input type="email" id="mce-EMAIL" name="EMAIL" required>
+  			  </div>
+    
+ 			   <div style="position: absolute; left: -5000px;" aria-hidden="true">
+ 			       <input type="text" name="b_your_id_here" tabindex="-1" value="">
+			    </div>
+    
+ 			   <button type="submit" class="btn" name="subscribe" style="margin-top: 1rem;">Join the Newsletter</button>
+			    <div id="newsletter-success" style="display: none; padding: 15px; text-align: center; border-radius: 5px; margin-top: 15px;">
+  					<strong>Thank you for subscribing!</strong>
+				</div>
+			</form>
+
+            <div style="margin-top: 4rem; padding-top: 3.5rem; border-top: 1px solid #ccc; max-width: 550px; margin-left: auto; margin-right: auto;">
+                <span class="section-tag">Network</span>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Prefer Substack?</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 300;">If you prefer long-form reading, follow us directly on the Substack network.</p>
+                <a href="https://drallisonmulcahy.substack.com" target="_blank" class="email-link" style="margin-top: 0; font-size: 1.2rem;">Follow us on Substack &rarr;</a>
+            </div>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">General Inquiries</span>
+            <h2>Reach Out</h2>
+            <p>Have general inquiries, suggestions, or quick operational notes for our team?</p>
+            <p>Send us a direct email and we will loop back into alignment as soon as possible.</p>
+
+            <div style="margin-top: 1.5rem;">
+                <a href="mailto:info@awakeningaphrodite.org" class="email-link">info@awakeningaphrodite.org</a>
+            </div>
+
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 3rem; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                <strong>Note:</strong> To formally propose working together, please utilize the <strong>Collaborator Questionnaire</strong> above so your data maps directly to our team.
+            </p>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Response Time</span>
+            <h2>A Relational Approach</h2>
+            <p>Awakening Aphrodite is currently in an early developmental phase.</p>
+            <p>Responses may take time as the movement is being built thoughtfully and collaboratively.</p>
+            <p>We appreciate your patience and presence.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper dark-bg">
+        <section class="text-block" style="padding: 2rem 0;">
+            <p style="font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; max-width: 850px; margin: 0 auto; line-height: 1.5;">
+                "If something inside you feels curious, moved, inspired, softened, or quietly awakened here — thank you for being part of the unfolding."
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="elements.html">Elements</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="Team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+<script>
+  // Find the form and success message
+  const newsletterForm = document.getElementById('mc-embedded-subscribe-form');
+  const newsletterSuccess = document.getElementById('newsletter-success');
+
+  // Make sure the form exists on the page before running the script
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function() {
+      // Hide the form
+   //   newsletterForm.style.display = 'none';
+      
+      // Show the on-page success message
+      newsletterSuccess.style.display = 'block';
+    });
+  }
+</script>
+</body>
+</html>

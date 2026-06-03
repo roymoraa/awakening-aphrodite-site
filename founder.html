@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+        a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        a:hover { opacity: 0.6; }
+
+        /* Navigation: Perfectly Balanced Header matching index.html layout */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; flex-direction: row; align-items: center;
+            z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { 
+            margin-right: 2rem; 
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a { transition: opacity 0.3s ease; display: inline-block; }
+        
+        .logo img { 
+            max-height: 90px; 
+            width: auto; 
+            display: block; 
+        }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .nav-links { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem; 
+            font-size: 0.85rem; letter-spacing: 1px; 
+            line-height: 1;
+        }
+
+        /* Hero Layout */
+        .hero {
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 12rem 5% 4rem 5%;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 1px; margin-bottom: 1.5rem; }
+        .hero-subheadline { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 400; letter-spacing: 2px; color: var(--text-muted); max-width: 850px; line-height: 1.6; text-transform: uppercase; }
+
+        /* Full Width Wrapper for backgrounds */
+        .section-wrapper { width: 100%; padding: 6rem 5%; }
+        .section-wrapper.base-bg { background-color: var(--bg-base); }
+        .section-wrapper.alt-bg { background-color: var(--bg-alt); }
+        .section-wrapper.dark-bg { background-color: var(--bg-dark); color: #fff; }
+
+        .text-block { max-width: 950px; margin: 0 auto; text-align: center; }
+        .text-block h2 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .text-block p { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 300; }
+        
+        .dark-bg .text-block h2 { color: #fff; }
+        .dark-bg .text-block p { color: #ccc; }
+        
+        /* Section Tags */
+        .section-tag { font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.75rem; display: block; text-align: center; }
+        .dark-bg .section-tag { color: #aaa; }
+
+        /* List Styling */
+        .list-container { text-align: left; max-width: 500px; margin: 2rem auto; }
+        .list-container ul { list-style: none; }
+        .list-container li { margin-bottom: 0.6rem; font-size: 1.1rem; position: relative; padding-left: 1.5rem; font-weight: 300; }
+        .list-container li::before { content: "•"; position: absolute; left: 0; color: var(--text-muted); }
+        .dark-bg .list-container li::before { color: #aaa; }
+
+        /* Testimonials Layout */
+        .testimonial-block {
+            max-width: 750px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+        .testimonial-quote {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        .testimonial-author {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            display: inline-block; margin-top: 1.5rem; padding: 1.2rem 3.5rem; background: var(--text-dark);
+            color: #fff !important; font-family: var(--font-sans); letter-spacing: 1px; transition: opacity 0.3s ease;
+            text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer;
+        }
+        .btn:hover { opacity: 0.8; }
+        
+        .dark-bg .btn { background: #fff; color: var(--text-dark) !important; }
+
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <nav class="fade-in">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Awakening Aphrodite Logo">
+            </a>
+        </div>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="elements.html">Elements</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="Team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero fade-in">
+        <h1>Dr. Allison Mulcahy, MD</h1>
+        <p class="hero-subheadline">Physician • Integrative Medicine Practitioner • Somatic & Consciousness Explorer • Founder of Awakening Aphrodite</p>
+    </header>
+
+    <div class="section-wrapper base-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">A Foundation in Medicine</span>
+            <h2>Medicine, Trauma Care & Human Resilience</h2>
+            <p>Dr. Allison Mulcahy is a double board-certified physician in Emergency Medicine and Integrative Medicine whose work spans emergency medicine, regenerative medicine, trauma physiology, somatic healing, and integrative health.</p>
+            <p>For more than 15 years, Allison worked in emergency departments ranging from major trauma centers to rural hospitals throughout the United States. Her work also included humanitarian and global health experiences in regions affected by disaster, conflict, and limited medical access.</p>
+            <p>These experiences profoundly shaped her understanding of suffering, resilience, the nervous system, and the deep complexity of being human.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Expanding the Model of Healing</span>
+            <h2>Beyond Symptom Management</h2>
+            <p>Over time, Allison became increasingly interested in the relationship between:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>trauma</li>
+                    <li>nervous system physiology</li>
+                    <li>emotional health</li>
+                    <li>embodiment</li>
+                    <li>sexuality</li>
+                    <li>longevity</li>
+                    <li>regenerative medicine</li>
+                    <li>consciousness</li>
+                </ul>
+            </div>
+            
+            <p>Her advanced training includes fellowships and education in:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>Integrative Medicine</li>
+                    <li>Functional Medicine</li>
+                    <li>Regenerative Medicine</li>
+                    <li>Precision Medicine</li>
+                    <li>Integrative Psychiatry</li>
+                </ul>
+            </div>
+            
+            <p>In 2019, she founded Boost, an integrative and regenerative medicine practice focused on whole-system healing and nervous system restoration. This clinical background forms the scientific foundation for Awakening Aphrodite.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Bridging Disciplinary Pathways</span>
+            <h2>Weaving Science & Somatics</h2>
+            <p>Allison's journey has also been shaped by deep training and exploration in somatic experiencing, trauma healing, breathwork, emotional processing, embodiment arts, and consciousness studies.</p>
+            <p>She has spent years exploring how modern medical science and traditional somatic lineages can inform, ground, and enrich one another.</p>
+            <p>Awakening Aphrodite is the expression of this integration—a vision to build an embodied, community-centered future of healing.</p>
+            <p>The movement explores how medicine, nervous system healing, emotional truth, embodiment, community, land stewardship, feminine intelligence, and consciousness exploration might work together to support both personal and collective transformation.</p>
+            <p>At the heart of the work is a simple wish, one that has guided Allison since childhood: To help reduce unnecessary suffering and create spaces where people can reconnect with themselves, one another, nature, and life more fully.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Reflections</span>
+            <h2>Reflections From Those Who Have Worked With Allison</h2>
+            
+            <div class="testimonial-block">
+                <p class="testimonial-quote">"Allison has a rare ability to bridge scientific rigor with profound human presence. I felt deeply seen, safe, and supported throughout the process."</p>
+                <p class="testimonial-author">— Physician</p>
+            </div>
+
+            <div class="testimonial-block">
+                <p class="testimonial-quote">"The work helped me reconnect with my body, emotions, and sense of self in a way I had never experienced before."</p>
+                <p class="testimonial-author">— Retreat Participant</p>
+            </div>
+
+            <div class="testimonial-block">
+                <p class="testimonial-quote">"I came for nervous system healing and left feeling more grounded, emotionally connected, and alive."</p>
+                <p class="testimonial-author">— Entrepreneur & Mother</p>
+            </div>
+
+            <div class="testimonial-block">
+                <p class="testimonial-quote">"What stood out most was the combination of clinical precision, intuition, and emotional depth."</p>
+                <p class="testimonial-author">— Somatic Practitioner</p>
+            </div>
+
+            <div class="testimonial-block">
+                <p class="testimonial-quote">"There was an integrity and humanity in the work that allowed me to soften in ways I didn't think were possible."</p>
+                <p class="testimonial-author">— Therapist</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="section-wrapper dark-bg">
+        <section class="text-block" style="padding: 2rem 0;">
+            <span class="section-tag">Closing Reflection</span>
+            <p style="font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; margin-bottom: 2rem; max-width: 850px; margin: 0 auto;">
+                "Awakening Aphrodite is still emerging. Like all living systems, it continues to evolve through relationship, collaboration, healing, curiosity, embodiment, and the intelligence of the body itself."
+            </p>
+            <a href="co-create.html" class="btn">Ways to Co-Create</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="elements.html">Elements</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="Team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

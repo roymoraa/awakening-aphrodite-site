@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+            --plum: #6B4C57;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- NAVIGATION HEADER --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; flex-direction: row; align-items: center;
+            z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { 
+            margin-right: 2rem; 
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img { max-height: 90px; width: auto; display: block; }
+        .nav-content { display: flex; flex-direction: column; justify-content: center; }
+        
+        .brand-title {
+            font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 3px;
+            text-transform: uppercase; line-height: 1.3; margin-bottom: 1.3rem;
+            color: var(--text-dark); display: inline-block; text-decoration: none;
+        }
+
+        .nav-links { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem; 
+            font-size: 0.85rem; letter-spacing: 1px; line-height: 1;
+        }
+        .nav-links a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        /* --- CENTERED CONFIRMATION CONTENT --- */
+        .success-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 180px 20px 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .success-container h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .success-container p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block; padding: 1.2rem 3.5rem; background: var(--text-dark);
+            color: #fff !important; font-family: var(--font-sans); letter-spacing: 1px; transition: all 0.3s ease;
+            text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer; text-decoration: none;
+        }
+        .btn:hover { background: var(--plum); transform: translateY(-1px); }
+
+        /* --- FOOTER --- */
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); width: 100%; }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; text-decoration: none; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .success-container { padding-top: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Awakening Aphrodite Logo">
+            </a>
+        </div>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="elements.html">Elements</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="Team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="success-container">
+        <h1>Thank You</h1>
+        <p>Your submission was successful. We appreciate your connection and presence as the movement continues to thoughtfully unfold.</p>
+        <a href="index.html" class="btn">Return Home</a>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="elements.html">Elements</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="Team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

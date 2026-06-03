@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Neurophysiology | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+        a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        a:hover { opacity: 0.6; }
+
+        /* Navigation: Perfectly Balanced Header matching index.html layout */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; flex-direction: row; align-items: center;
+            z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { 
+            margin-right: 2rem; 
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a { transition: opacity 0.3s ease; display: inline-block; }
+        
+        .logo img { 
+            max-height: 90px; 
+            width: auto; 
+            display: block; 
+        }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .nav-links { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem; 
+            font-size: 0.85rem; letter-spacing: 1px; 
+            line-height: 1;
+        }
+
+        /* Hero Layout */
+        .hero {
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 12rem 5% 4rem 5%;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .hero-subheadline { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; color: var(--text-muted); max-width: 850px; line-height: 1.6; }
+
+        /* Full Width Wrapper for backgrounds */
+        .section-wrapper { width: 100%; padding: 6rem 5%; }
+        .section-wrapper.base-bg { background-color: var(--bg-base); }
+        .section-wrapper.alt-bg { background-color: var(--bg-alt); }
+        .section-wrapper.dark-bg { background-color: var(--bg-dark); color: #fff; }
+
+        .text-block { max-width: 950px; margin: 0 auto; text-align: center; }
+        .text-block h2 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .text-block p { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 300; }
+        
+        .dark-bg .text-block h2 { color: #fff; }
+        .dark-bg .text-block p { color: #ccc; }
+        
+        /* Subtle Tags */
+        .section-tag { font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.75rem; display: block; text-align: center; }
+        .dark-bg .section-tag { color: #aaa; }
+
+        /* List Styling */
+        .list-container { text-align: left; max-width: 500px; margin: 2rem auto; }
+        .list-container ul { list-style: none; }
+        .list-container li { margin-bottom: 0.6rem; font-size: 1.1rem; position: relative; padding-left: 1.5rem; font-weight: 300; }
+        .list-container li::before { content: "•"; position: absolute; left: 0; color: var(--text-muted); }
+        .dark-bg .list-container li::before { color: #aaa; }
+
+        .btn {
+            display: inline-block; margin-top: 1.5rem; padding: 1.2rem 3.5rem; background: var(--text-dark);
+            color: #fff !important; font-family: var(--font-sans); letter-spacing: 1px; transition: opacity 0.3s ease;
+            text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer;
+        }
+        .btn:hover { opacity: 0.8; }
+        
+        .dark-bg .btn { background: #fff; color: var(--text-dark) !important; }
+
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <nav class="fade-in">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Awakening Aphrodite Logo">
+            </a>
+        </div>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="elements.html">Elements</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="Team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero fade-in">
+        <h1>Sacred Neurophysiology</h1>
+        <p class="hero-subheadline">A framework exploring the relationship between the nervous system, emotion, trauma, embodiment, sexuality, healing, and consciousness.</p>
+    </header>
+
+    <div class="section-wrapper base-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">The Nervous System as Portal</span>
+            <h2>The Body Holds Experience</h2>
+            <p>The nervous system shapes far more than physical sensation.</p>
+            <p>It influences how we experience:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>safety</li>
+                    <li>connection</li>
+                    <li>emotion</li>
+                    <li>stress</li>
+                    <li>pleasure</li>
+                    <li>intimacy</li>
+                    <li>creativity</li>
+                    <li>identity</li>
+                    <li>resilience</li>
+                    <li>belonging</li>
+                </ul>
+            </div>
+            
+            <p>Sacred Neurophysiology explores the body as an intelligent system where physiology, memory, emotion, and lived experience are deeply interconnected.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Science & Embodiment</span>
+            <h2>Bridging Science and Somatic Healing</h2>
+            <p>Sacred Neurophysiology emerged through the integration of:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>emergency medicine</li>
+                    <li>regenerative medicine</li>
+                    <li>integrative medicine</li>
+                    <li>nervous system physiology</li>
+                    <li>somatic healing</li>
+                    <li>trauma work</li>
+                    <li>emotional processing</li>
+                    <li>embodiment practices</li>
+                    <li>consciousness exploration</li>
+                </ul>
+            </div>
+            
+            <p>The framework explores how modern medical understanding and embodied healing practices can inform one another rather than exist separately.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Trauma, Emotion & the Body</span>
+            <h2>Trauma Lives in the Nervous System</h2>
+            <p>Many emotional and survival patterns are not simply cognitive - they are physiological.</p>
+            <p>The body adapts to stress, grief, fear, overwhelm, and relational experiences through the nervous system.</p>
+            <p>Over time, these adaptations can affect:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>breath</li>
+                    <li>emotional regulation</li>
+                    <li>sensation</li>
+                    <li>intimacy</li>
+                    <li>voice</li>
+                    <li>posture</li>
+                    <li>energy</li>
+                    <li>connection</li>
+                    <li>capacity for pleasure and safety</li>
+                </ul>
+            </div>
+            
+            <p>Healing often begins when the body no longer has to remain in protection.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">The Vertical Channel</span>
+            <h2>The Body as an Integrated System</h2>
+            <p>Sacred Neurophysiology explores the relationship between:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>the brain</li>
+                    <li>the heart</li>
+                    <li>the gut</li>
+                    <li>the pelvis</li>
+                    <li>the breath</li>
+                    <li>the fascia</li>
+                    <li>the autonomic nervous system</li>
+                </ul>
+            </div>
+            
+            <p>The framework also draws inspiration from energetic and somatic traditions that view the body as a vertical channel connecting emotion, instinct, expression, intuition, and consciousness.</p>
+            <p>This work does not separate the physical from the emotional or the emotional from the spiritual.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Clinical & Somatic Pathways</span>
+            <h2>A Whole-System Approach</h2>
+            <p>Depending on setting, practitioner background, and legal context, Sacred Neurophysiology may integrate:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>nervous system regulation</li>
+                    <li>somatic healing</li>
+                    <li>regenerative medicine</li>
+                    <li>fascia-focused therapies</li>
+                    <li>breathwork</li>
+                    <li>emotional processing</li>
+                    <li>ritual and embodiment practices</li>
+                    <li>ketamine-assisted therapy (where legal)</li>
+                    <li>community and relational healing</li>
+                </ul>
+            </div>
+            
+            <p>All work is intended to be trauma-informed, consent-based, and grounded in ethical practice.</p>
+            <a href="offerings.html" class="btn">Learn About Offerings</a>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Healing Through Coherence</span>
+            <h2>Returning to Connection</h2>
+            <p>At its core, Sacred Neurophysiology explores what happens when the body experiences greater coherence.</p>
+            <p>People often describe:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>deeper presence</li>
+                    <li>emotional release</li>
+                    <li>increased clarity</li>
+                    <li>restored sensation</li>
+                    <li>greater self-trust</li>
+                    <li>renewed vitality</li>
+                    <li>a stronger sense of connection to themselves and others</li>
+                </ul>
+            </div>
+            
+            <p>Rather than forcing transformation, the work supports the body's innate capacity to reorganize, regulate, and heal.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper dark-bg">
+        <section class="text-block" style="padding: 2rem 0;">
+            <p style="font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; margin-bottom: 2rem;">
+                "The nervous system is not only a survival system. It is also a system for connection, creativity, intimacy, feeling, expression, and aliveness."
+            </p>
+            <a href="elements.html" class="btn">Explore the Elements</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="elements.html">Elements</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="Team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offerings | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+        a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        a:hover { opacity: 0.6; }
+
+        /* Navigation: Perfectly Balanced Header matching index.html layout */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; flex-direction: row; align-items: center;
+            z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { 
+            margin-right: 2rem; 
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a { transition: opacity 0.3s ease; display: inline-block; }
+        
+        .logo img { 
+            max-height: 90px; 
+            width: auto; 
+            display: block; 
+        }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .nav-links { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem; 
+            font-size: 0.85rem; letter-spacing: 1px; 
+            line-height: 1;
+        }
+
+        /* Hero Layout */
+        .hero {
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 12rem 5% 4rem 5%;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .hero-subheadline { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; color: var(--text-muted); max-width: 850px; line-height: 1.6; }
+
+        /* Full Width Wrapper for backgrounds */
+        .section-wrapper { width: 100%; padding: 6rem 5%; }
+        .section-wrapper.base-bg { background-color: var(--bg-base); }
+        .section-wrapper.alt-bg { background-color: var(--bg-alt); }
+        .section-wrapper.dark-bg { background-color: var(--bg-dark); color: #fff; }
+
+        .text-block { max-width: 950px; margin: 0 auto; text-align: center; }
+        .text-block h2 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .text-block p { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 300; }
+        
+        .dark-bg .text-block h2 { color: #fff; }
+        .dark-bg .text-block p { color: #ccc; }
+        
+        /* Section Tags */
+        .section-tag { font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.75rem; display: block; text-align: center; }
+        .dark-bg .section-tag { color: #aaa; }
+
+        /* List Styling */
+        .list-container { text-align: left; max-width: 500px; margin: 2rem auto; }
+        .list-container ul { list-style: none; }
+        .list-container li { margin-bottom: 0.6rem; font-size: 1.1rem; position: relative; padding-left: 1.5rem; font-weight: 300; }
+        .list-container li::before { content: "•"; position: absolute; left: 0; color: var(--text-muted); }
+        .dark-bg .list-container li::before { color: #aaa; }
+
+        .btn {
+            display: inline-block; margin-top: 1.5rem; padding: 1.2rem 3.5rem; background: var(--text-dark);
+            color: #fff !important; font-family: var(--font-sans); letter-spacing: 1px; transition: opacity 0.3s ease;
+            text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer;
+        }
+        .btn:hover { opacity: 0.8; }
+        
+        .dark-bg .btn { background: #fff; color: var(--text-dark) !important; }
+
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <nav class="fade-in">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Awakening Aphrodite Logo">
+            </a>
+        </div>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="elements.html">Elements</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="Team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero fade-in">
+        <h1>Offerings</h1>
+        <p class="hero-subheadline">Emerging pathways for healing, embodiment, nervous system restoration, creativity, community, and transformation.</p>
+    </header>
+
+    <div class="section-wrapper base-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">A Living Ecosystem</span>
+            <h2>Experiences That Emerge Through the Field</h2>
+            <p>Awakening Aphrodite offerings are intended to evolve organically through the land, practitioners, community, and elemental focus of each future sanctuary.</p>
+            <p>Rather than fixed programs or standardized retreats, offerings are envisioned as responsive, seasonal, and deeply relational.</p>
+            <p>Each experience may look different depending on the place, people, and moment in time.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Elemental Journeys</span>
+            <h2>Elemental Journeys</h2>
+            <p>Immersive experiences inspired by the seven Elements:</p>
+            
+            <div class="list-container" style="max-width: 300px;">
+                <ul>
+                    <li>Water</li>
+                    <li>Fire</li>
+                    <li>Air</li>
+                    <li>Earth</li>
+                    <li>Metal</li>
+                    <li>Wood</li>
+                    <li>Ether</li>
+                </ul>
+            </div>
+            
+            <p>These journeys may include combinations of:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>somatic healing</li>
+                    <li>ritual</li>
+                    <li>movement</li>
+                    <li>emotional processing</li>
+                    <li>breathwork</li>
+                    <li>embodiment practices</li>
+                    <li>nature immersion</li>
+                    <li>nervous system support</li>
+                    <li>creative exploration</li>
+                </ul>
+            </div>
+            
+            <p>Each Element offers a different pathway into healing and transformation.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Sacred Neurophysiology</span>
+            <h2>Sacred Neurophysiology Intensives</h2>
+            <p>Future intensives may explore the relationship between:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>the nervous system</li>
+                    <li>trauma and resilience</li>
+                    <li>emotion</li>
+                    <li>embodiment</li>
+                    <li>sexuality</li>
+                    <li>regenerative medicine</li>
+                    <li>consciousness</li>
+                    <li>somatic healing</li>
+                </ul>
+            </div>
+            
+            <p>These experiences are envisioned as integrative spaces where modern medicine and embodied healing practices can work together.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Integration Spaces</span>
+            <h2>Grounding Insight into Embodiment</h2>
+            <p>Future integration experiences are being designed to support people integrating:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>psychedelic experiences</li>
+                    <li>expanded states of consciousness</li>
+                    <li>spiritual openings</li>
+                    <li>emotional breakthroughs</li>
+                    <li>somatic awakenings</li>
+                    <li>major life transitions</li>
+                </ul>
+            </div>
+            
+            <p>Where legally permitted, future offerings may include psychedelic-assisted therapies integrated with somatic and nervous system support.</p>
+            <p>Integration is understood as a process of grounding insight into lived experience and embodiment.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Community & Ritual</span>
+            <h2>Ritual, Community & Collective Healing</h2>
+            <p>Future sanctuaries may host:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>seasonal gatherings</li>
+                    <li>community rituals</li>
+                    <li>grief circles</li>
+                    <li>movement and music experiences</li>
+                    <li>creative collaborations</li>
+                    <li>healing councils</li>
+                    <li>elemental ceremonies</li>
+                    <li>educational gatherings</li>
+                </ul>
+            </div>
+            
+            <p>We believe healing is often amplified through safe, connected community.</p>
+        </section>
+    </div>
+
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Future Trainings & Residencies</span>
+            <h2>Learning, Living & Long-Term Transformation</h2>
+            <p>Over time, Awakening Aphrodite hopes to offer:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>practitioner trainings</li>
+                    <li>seasonal residencies</li>
+                    <li>immersive educational programs</li>
+                    <li>sanctuary apprenticeships</li>
+                    <li>research collaborations</li>
+                    <li>long-term healing pathways</li>
+                </ul>
+            </div>
+            
+            <p>The vision is to create environments that support both personal healing and collective evolution.</p>
+            <a href="institute.html" class="btn">Explore The Institute</a>
+        </section>
+    </div>
+
+    <div class="section-wrapper dark-bg">
+        <section class="text-block" style="padding: 2rem 0;">
+            <span class="section-tag">Closing Reflection</span>
+            <p style="font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                "Healing is not always linear."
+            </p>
+            <p style="font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                "Sometimes it begins through rest. Sometimes through truth. Sometimes through grief, beauty, desire, connection, creativity, or simply feeling safe enough to return to the body again."
+            </p>
+            <p style="font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; max-width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 0;">
+                "The offerings are intended to support that return."
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="elements.html">Elements</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="Team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
