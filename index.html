@@ -172,49 +172,89 @@
 
 /* --- Mobile Breakpoint Optimization --- */
 @media (max-width: 768px) {
-    /* Expose the toggle graphic layout */
-    .menu-toggle {
-        display: flex;
-        position: absolute;
-        top: 25px; /* Adjust slightly based on your logo alignments */
-        right: 20px;
+    /* 1. Ensure the main navigation bar has a solid background and clear height */
+    nav.fade-in {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 15px 20px !important;
+        background-color: #ffffff !important;
+        height: 70px !important; /* Forces a standard clear boundary */
+        box-sizing: border-box !important;
     }
 
-    /* Target your existing layout container and hide it by default on phone viewports */
+    /* 2. Position the toggle cleanly on the right inside that header space */
+    .menu-toggle {
+        display: flex !important;
+        position: static !important; /* Removes absolute positioning conflicts */
+        margin-left: auto !important;
+    }
+
+    /* 3. Re-align your logo inside the mobile bar */
+    .logo {
+        max-height: 45px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    .logo img {
+        height: 40px !important;
+        width: auto !important;
+    }
+
+    /* 4. Transform the menu drop-down overlay to sit perfectly below the 70px header */
     .nav-content {
         display: none; 
-        position: absolute;
-        top: 80px; /* Positions it neatly beneath your logo/header line */
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
+        position: absolute !important;
+        top: 70px !important; /* Align exactly right under the nav container */
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #ffffff !important;
         flex-direction: column !important;
-        align-items: center;
-        padding: 30px 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        z-index: 1000;
+        align-items: center !important;
+        padding: 20px 0 30px 0 !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+        z-index: 1000 !important;
+        box-sizing: border-box !important;
     }
 
-    /* The trigger class your JavaScript will dynamically inject */
+    /* When the mobile menu is open */
     .nav-content.active {
         display: flex !important;
     }
 
-    /* Force your line of text links to stack vertically down the mobile overlay screen */
+    /* Clean text title inside the menu dropdown */
+    .brand-title {
+        font-size: 1.3rem !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    /* Clear vertical stack formatting for link items */
     .nav-links {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        width: 100%;
-        gap: 20px !important; /* Elegant vertical pacing */
-        margin-top: 15px;
+        width: 100% !important;
+        gap: 18px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .nav-links a {
         font-size: 1.1rem !important;
-        width: 100%;
-        text-align: center;
-        padding: 8px 0;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 5px 0 !important;
+    }
+
+    /* 5. FIX: Ensure your page's Hero content section doesn't slide under the navbar */
+    header.hero {
+        margin-top: 20px !important; /* Adds a safety margin below the nav bar */
+        padding-top: 10px !important;
     }
 }
     </style>
