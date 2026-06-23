@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chakras | Awakening Aphrodite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fafafa;
+            --bg-alt: #eeeeee;
+            --bg-dark: #333333;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --border-color: #eaeaea;
+            --plum: #6B4C57;
+
+            /* Muted earthy chakra accent tones */
+            --accent-root:        #7a5c52;  /* deep terracotta */
+            --accent-sacral:      #b07d5a;  /* warm amber-clay */
+            --accent-solar:       #a89060;  /* golden wheat */
+            --accent-heart:       #6b8c72;  /* sage green */
+            --accent-throat:      #5e7a8a;  /* dusty teal */
+            --accent-thirdeye:    #6b607a;  /* muted indigo */
+            --accent-crown:       #8a7a8a;  /* soft violet-gray */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+        a { color: var(--text-dark); text-decoration: none; transition: opacity 0.3s ease; }
+        a:hover { opacity: 0.6; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; flex-direction: row; align-items: center;
+            z-index: 100; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            margin-right: 2rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a { transition: opacity 0.3s ease; display: inline-block; }
+        .logo img { max-height: 90px; width: auto; display: block; }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.5rem;
+            font-size: 0.85rem; letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        /* Hero Layout */
+        .hero {
+            min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 12rem 5% 4rem 5%;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .hero-subheadline { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; color: var(--text-muted); max-width: 850px; line-height: 1.6; }
+
+        /* Section Wrappers */
+        .section-wrapper { width: 100%; padding: 7rem 5%; border-bottom: 1px solid var(--border-color); }
+        .section-wrapper.base-bg { background-color: var(--bg-base); }
+        .section-wrapper.alt-bg { background-color: var(--bg-alt); }
+        .section-wrapper.dark-bg { background-color: var(--bg-dark); color: #fff; border-bottom: none; }
+
+        .text-block { max-width: 850px; margin: 0 auto; text-align: center; }
+        .text-block h2 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .text-block p { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 300; }
+
+        .dark-bg .text-block h2 { color: #fff; }
+        .dark-bg .text-block p { color: #ccc; }
+
+        /* Chakra descriptor line */
+        .chakra-descriptors {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Clinical inset block */
+        .clinical-block {
+            margin: 2rem auto 0 auto;
+            max-width: 650px;
+            border-left: 2px solid currentColor;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            opacity: 0.85;
+        }
+
+        .clinical-block .clinical-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .clinical-block p {
+            font-size: 1rem !important;
+            font-family: var(--font-sans);
+            margin-bottom: 0 !important;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* Section tag */
+        .section-tag { font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.75rem; display: block; text-align: center; }
+        .dark-bg .section-tag { color: #aaa; }
+
+        /* List */
+        .list-container { text-align: left; max-width: 500px; margin: 2rem auto; }
+        .list-container ul { list-style: none; }
+        .list-container li { margin-bottom: 0.6rem; font-size: 1.1rem; position: relative; padding-left: 1.5rem; font-weight: 300; }
+        .list-container li::before { content: "•"; position: absolute; left: 0; color: var(--text-muted); }
+
+        .btn {
+            display: inline-block; margin-top: 1.5rem; padding: 1.2rem 3.5rem; background: var(--text-dark);
+            color: #fff !important; font-family: var(--font-sans); letter-spacing: 1px; transition: all 0.3s ease;
+            text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer;
+        }
+        .btn:hover { background: var(--plum); transform: translateY(-1px); }
+        .dark-bg .btn { background: #fff; color: var(--text-dark) !important; }
+
+        footer { padding: 5rem 5%; text-align: center; border-top: 1px solid var(--border-color); background-color: var(--bg-base); }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
+        .footer-nav a { font-size: 0.9rem; color: var(--text-dark); letter-spacing: 1px; }
+        footer p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem auto; }
+
+        /* Footer Social Icons */
+        .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color); color: var(--text-muted); transition: all 0.3s ease; }
+        .footer-social a:hover { opacity: 1; border-color: var(--text-dark); color: var(--text-dark); }
+        .footer-social svg { width: 18px; height: 18px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+
+        /* Mobile */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger-bar {
+            width: 100%;
+            height: 2px;
+            background-color: #111111;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 768px) {
+            nav.fade-in {
+                position: relative !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 15px 20px !important;
+                background-color: #ffffff !important;
+                height: 70px !important;
+                box-sizing: border-box !important;
+            }
+
+            .menu-toggle {
+                display: flex !important;
+                position: static !important;
+                margin-left: auto !important;
+            }
+
+            .logo {
+                max-height: 45px !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            .logo img {
+                height: 40px !important;
+                width: auto !important;
+            }
+
+            .nav-content {
+                display: none;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0 !important;
+                width: 100% !important;
+                background-color: #ffffff !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 20px 0 50px 0 !important;
+                box-shadow: 0 25px 35px rgba(0, 0, 0, 0.12) !important;
+                z-index: 1000 !important;
+                box-sizing: border-box !important;
+            }
+
+            .nav-content.active {
+                display: flex !important;
+            }
+
+            .brand-title {
+                font-size: 1.3rem !important;
+                letter-spacing: 2px !important;
+                margin-bottom: 20px !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                width: 100% !important;
+                gap: 18px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem !important;
+                width: 100% !important;
+                text-align: center !important;
+                padding: 5px 0 !important;
+            }
+
+            header.hero {
+                margin-top: 20px !important;
+                padding-top: 10px !important;
+            }
+
+            .clinical-block {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fade-in">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Awakening Aphrodite Logo">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <div class="nav-content">
+            <a href="index.html" class="brand-title">Awakening Aphrodite</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+                <a href="chakras.html">Chakras</a>
+                <a href="sanctuaries.html">Sanctuaries</a>
+                <a href="offerings.html">Offerings</a>
+                <a href="institute.html">Institute</a>
+                <a href="team.html">Team</a>
+                <a href="co-create.html">Co-Create</a>
+                <a href="technology.html">Tech & AI</a>
+                <a href="connect.html">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero fade-in">
+        <h1>The Chakras</h1>
+        <p class="hero-subheadline">A map of the body's energy centers — each one a meeting point between sacred anatomy, neurophysiology, and lived human experience.</p>
+    </header>
+
+    <!-- Introduction -->
+    <div class="section-wrapper base-bg fade-in">
+        <section class="text-block">
+            <span class="section-tag">Sacred Anatomy</span>
+            <h2>Where Energy Meets Physiology</h2>
+            <p>The chakra system offers one of humanity's oldest maps of embodied consciousness — seven centers running along the vertical axis of the body, each governing distinct dimensions of feeling, function, and awareness.</p>
+            <p>At Awakening Aphrodite, we hold the chakras not as abstract spiritual concepts, but as lived anatomical territories: nerve plexuses, fascial networks, and autonomic hubs that shape how we experience safety, sensation, power, love, expression, intuition, and transcendence.</p>
+            <p>Our clinical work uses sequential ozonated 5% dextrose hydrodissections to address each chakra's corresponding neural structures — meeting the ancient map with precision medicine.</p>
+            <p>The result is not simply physical relief. It is often a profound return to self.</p>
+        </section>
+    </div>
+
+    <!-- Chakra-Focused Treatments Overview -->
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Clinical Framework</span>
+            <h2>Chakra-Focused Treatments</h2>
+            <p>Individual treatments may focus on areas traditionally associated with the body's energetic centers, combining targeted nervous system work with energetic integration practices.</p>
+
+            <div class="list-container">
+                <ul>
+                    <li>Root chakra nervous system releases</li>
+                    <li>Sacral and pelvic nerve pathway work</li>
+                    <li>Solar plexus autonomic regulation</li>
+                    <li>Heart-centered trauma reset techniques</li>
+                    <li>Vagal corridor and throat pathway treatments</li>
+                    <li>Cranial and occipital nerve releases</li>
+                </ul>
+            </div>
+
+            <p>Each treatment corresponds to a specific chakra region and its underlying neural architecture, explored in detail below.</p>
+        </section>
+    </div>
+
+    <!-- Root Chakra -->
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">First Chakra</span>
+            <h2 style="color: var(--accent-root);">Root</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-root);">Safety • Grounding • Belonging • Survival</div>
+            <p>The Root Chakra anchors us to the earth and to our most fundamental sense of safety in the body.</p>
+            <p>It governs the instinct to survive, the felt sense of belonging, and the capacity to feel held by the ground beneath us. When the root is dysregulated, life can feel chronically threatening — even when it is not.</p>
+            <p>Healing here invites a return to groundedness, physical safety, and the primal trust that the body is a home worth inhabiting.</p>
+            <div class="clinical-block" style="color: var(--accent-root); border-color: var(--accent-root);">
+                <span class="clinical-label">Clinical Treatment — Root + Caudal Epidural</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting the sacral, lumbar, pudendal, and femoral nerves.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sacral Chakra -->
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Second Chakra</span>
+            <h2 style="color: var(--accent-sacral);">Sacral</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-sacral);">Pleasure • Creativity • Desire • Flow</div>
+            <p>The Sacral Chakra is the seat of sensation, creative life force, and erotic intelligence.</p>
+            <p>It governs our capacity to feel pleasure, move with desire, and receive the richness of embodied experience. Disruptions here can manifest as numbness, shame, disconnection from the body, or difficulty accessing joy and intimacy.</p>
+            <p>Healing here restores the body's relationship with sensation, fluidity, and the sacred intelligence of desire.</p>
+            <div class="clinical-block" style="color: var(--accent-sacral); border-color: var(--accent-sacral);">
+                <span class="clinical-label">Clinical Treatment — Sacral + Hypogastric Plexus & Sciatic</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting the hypogastric, sciatic, pelvic, genitofemoral, and obturator nerves.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Solar Plexus Chakra -->
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Third Chakra</span>
+            <h2 style="color: var(--accent-solar);">Solar Plexus</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-solar);">Power • Will • Digestion • Identity</div>
+            <p>The Solar Plexus is the center of personal power, self-determination, and metabolic fire.</p>
+            <p>It governs our capacity to act with conviction, digest both food and experience, and hold a stable sense of self in the world. When this center is constricted, we may struggle with agency, direction, or the ability to move through life with confidence.</p>
+            <p>Healing here reignites vitality, sovereignty, and the deep knowing of who we are.</p>
+            <div class="clinical-block" style="color: var(--accent-solar); border-color: var(--accent-solar);">
+                <span class="clinical-label">Clinical Treatment — Solar Plexus + Celiac Plexus</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting the celiac plexus, subcostal nerves, and thoracolumbar fascia.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Heart Chakra -->
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Fourth Chakra</span>
+            <h2 style="color: var(--accent-heart);">Heart</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-heart);">Love • Grief • Connection • Compassion</div>
+            <p>The Heart Chakra is the integrating center — the bridge between the body below and the sky above.</p>
+            <p>It governs our capacity for love, grief, tenderness, and true connection. The heart holds both the ache of loss and the expansiveness of belonging. When guarded, the chest contracts and connection dims. When open, we become capable of receiving and offering love with our whole being.</p>
+            <p>Healing here softens armoring around the heart and restores the capacity for genuine intimacy.</p>
+            <div class="clinical-block" style="color: var(--accent-heart); border-color: var(--accent-heart);">
+                <span class="clinical-label">Clinical Treatment — Heart + Stellate Ganglion</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting the stellate ganglion and brachial/interscalene plexus.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Throat Chakra -->
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Fifth Chakra</span>
+            <h2 style="color: var(--accent-throat);">Throat</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-throat);">Truth • Voice • Expression • Resonance</div>
+            <p>The Throat Chakra is the gateway of authentic expression and the body's capacity to speak what is true.</p>
+            <p>It governs voice, communication, the ability to say no and yes with integrity, and the felt sense of being heard. When constricted — often from early silencing, trauma, or chronic stress — expression becomes effortful, and truth stays locked inside.</p>
+            <p>Healing here restores the flow between inner knowing and outer voice.</p>
+            <div class="clinical-block" style="color: var(--accent-throat); border-color: var(--accent-throat);">
+                <span class="clinical-label">Clinical Treatment — Throat + Cervical Plexus</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting the cervical plexus, ansa cervicalis, vagus nerve, and brachial roots.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Third Eye Chakra -->
+    <div class="section-wrapper alt-bg">
+        <section class="text-block">
+            <span class="section-tag">Sixth Chakra</span>
+            <h2 style="color: var(--accent-thirdeye);">Third Eye</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-thirdeye);">Intuition • Clarity • Vision • Perception</div>
+            <p>The Third Eye is the seat of inner knowing, pattern recognition, and the capacity to see beyond the surface of things.</p>
+            <p>It governs intuition, imagination, discernment, and the ability to perceive truth without external validation. When this center is clouded — by chronic pain, dissociation, or sensory overwhelm — clarity dims and we lose trust in our own perception.</p>
+            <p>Healing here restores trust in the body's intelligence and the subtle signals that guide us.</p>
+            <div class="clinical-block" style="color: var(--accent-thirdeye); border-color: var(--accent-thirdeye);">
+                <span class="clinical-label">Clinical Treatment — Third Eye + Occipital & Trigeminal</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting the occipital, suboccipital, trigeminal, and trochlear nerves.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Crown Chakra -->
+    <div class="section-wrapper base-bg">
+        <section class="text-block">
+            <span class="section-tag">Seventh Chakra</span>
+            <h2 style="color: var(--accent-crown);">Crown</h2>
+            <div class="chakra-descriptors" style="color: var(--accent-crown);">Consciousness • Transcendence • Mystery • Awe</div>
+            <p>The Crown Chakra opens us to dimensions of experience beyond the personal — to stillness, presence, and the felt sense of being part of something vast and unnameable.</p>
+            <p>It governs our capacity for expanded awareness, spiritual connection, and the kind of peace that does not depend on circumstances. When this center is closed, life can feel flat, isolated, or without deeper meaning.</p>
+            <p>Healing here invites the return of wonder, reverence, and connection to the sacred.</p>
+            <div class="clinical-block" style="color: var(--accent-crown); border-color: var(--accent-crown);">
+                <span class="clinical-label">Clinical Treatment — Crown + C1–C2 & Cranial Fascia</span>
+                <p>Ozonated 5% dextrose hydrodissection targeting C1–C2 and the cranial fascia.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Closing -->
+    <div class="section-wrapper dark-bg">
+        <section class="text-block" style="padding: 2rem 0;">
+            <h2 style="margin-bottom: 1.5rem;">The Vertical Channel</h2>
+            <p>The chakras do not function in isolation.</p>
+            <p>They are a living conversation — root to crown, body to sky — each one influencing the others in a continuous loop of energy, sensation, emotion, and awareness.</p>
+            <p>When one center is constricted, the whole system reorganizes around it.</p>
+            <p>When coherence is restored, the entire column can breathe again.</p>
+            <p>This is the territory we work in: where ancient wisdom and modern medicine meet inside the body.</p>
+            <a href="sacred-neurophysiology.html" class="btn">Explore Sacred Neurophysiology</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/dr.allisonmulcahy" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/awakening-aphrodite" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://drallisonmulcahy.substack.com" target="_blank" rel="noopener" aria-label="Substack">
+                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+            </a>
+        </div>
+        <div class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="sacred-neurophysiology.html">Sacred Neurophysiology</a>
+            <a href="chakras.html">Chakras</a>
+            <a href="sanctuaries.html">Sanctuaries</a>
+            <a href="offerings.html">Offerings</a>
+            <a href="institute.html">Institute</a>
+            <a href="team.html">Team</a>
+            <a href="co-create.html">Co-Create</a>
+            <a href="technology.html">Tech & AI</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <p>Awakening Aphrodite. Exploring embodied healing, nervous system restoration, and community-centered transformation.</p>
+        <p>&copy; 2026 Awakening Aphrodite. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.querySelector('.menu-toggle');
+        const navContentBox = document.querySelector('.nav-content');
+
+        if (menuBtn && navContentBox) {
+            menuBtn.addEventListener('click', () => {
+                navContentBox.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
